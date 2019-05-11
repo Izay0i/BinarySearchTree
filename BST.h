@@ -15,4 +15,5 @@ public:
 	Node *removeNode(Node *&rt, unsigned int x);
 	Node *preOrderSearch(Node *&rt, unsigned int x);
 	Node *findMin(Node *&rt);
+	Node *findMax(Node *&rt);
 };
