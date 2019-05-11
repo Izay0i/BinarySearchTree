@@ -39,5 +39,41 @@ Node *BST::preOrderSearch(Node *& rt, unsigned int x) {
 		return preOrderSearch(rt->leftNode, x);
 }
 
+Node *BST::findMin(Node *&rt) {
+	while (rt->leftNode == NULL)
+		rt = rt->leftNode;
+	return rt;
+}
 
+void BST::removeNode(Node *&rt, unsigned int x) {
+	Node *tempNode;
+	
+	if (rt == NULL)
+		return;
+	else if (x > rt->data)
+		removeNode(rt->rightNode, x);
+	else if (x <= rt->data)
+		removeNode(rt->leftNode, x);
+	else {
+		if (rt->leftNode == NULL && rt->rightNode == NULL) {
+			delete rt;
+			rt = NULL;
+		}
+		else if (rt->rightNode == NULL) { 
+			tempNode = rt;
+			rt = rt->leftNode;
+			delete tempNode;
+		}
+		else if (rt->leftNode == NULL) {
+			tempNode = rt;
+			rt = rt->rightNode;
+			delete tempNode;
+		}
+		else {
+			tempNode = findMin(rt);
+			rt->data = tempNode->data;
+			removeNode(rt->rightNode, tempNode->data);
+		}
+	}
+}
 
