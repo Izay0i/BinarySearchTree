@@ -14,4 +14,5 @@ public:
 	void addNode(Node *&rt, unsigned int data);
 	void removeNode(Node *&rt, unsigned int x);
 	Node *preOrderSearch(Node *&rt, unsigned int x);
+	Node *findMin(Node *&rt);
 };
