@@ -39,6 +39,12 @@ Node *BST::preOrderSearch(Node *& rt, unsigned int x) {
 		return preOrderSearch(rt->leftNode, x);
 }
 
+Node *BST::findMax(Node *&rt) {
+	while (rt->rightNode != NULL)
+		rt = rt->rightNode;
+	return rt;
+}
+
 Node *BST::findMin(Node *&rt) {
 	while (rt->leftNode != NULL)
 		rt = rt->leftNode;
